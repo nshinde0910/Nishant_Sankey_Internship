@@ -1,0 +1,780 @@
+<!-- Nishant Shinde -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./index.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    />
+    <title>Final Payment</title>
+    <script src="./index.js"></script>
+    <script
+      src="https://kit.fontawesome.com/2efd12d6e1.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      //CARD-NUMBER-VALIDATION
+      document.addEventListener("DOMContentLoaded", function () {
+        var cardNumberInput = document.getElementById("cardnumber");
+        var validateCardMessage = document.getElementById("validatecard");
+        cardNumberInput.addEventListener("input", function () {
+          var cardNumber = cardNumberInput.value;
+          cardNumber = cardNumber.replace(/\D/g, "");
+          cardNumberInput.value = cardNumber.slice(0, 16);
+          if (!isValidCardNumber(cardNumber)) {
+            validateCardMessage.style.display = "block";
+          } else {
+            validateCardMessage.style.display = "none";
+          }
+        });
+        function isValidCardNumber(cardNumber) {
+          return /^\d{16}$/.test(cardNumber);
+        }
+      });
+
+      // CVC-VALIDATION
+      document.addEventListener("DOMContentLoaded", function () {
+        var cvcInput = document.getElementById("cvc");
+        var validateCVCMessage = document.getElementById("validatecvc");
+        cvcInput.addEventListener("input", function () {
+          var cvc = cvcInput.value;
+          cvc = cvc.replace(/\D/g, "");
+          cvcInput.value = cvc.slice(0, 3);
+          if (!isValidCVC(cvc)) {
+            validateCVCMessage.style.display = "block";
+          } else {
+            validateCVCMessage.style.display = "none";
+          }
+        });
+        function isValidCVC(cvc) {
+          return /^\d{3}$/.test(cvc);
+        }
+      });
+
+      // EXP-DATE-VALIDATION
+      document.addEventListener("DOMContentLoaded", function () {
+        var expDateInput = document.getElementById("exptdate");
+        var validateDateMessage = document.getElementById("validatedate");
+        expDateInput.addEventListener("input", function () {
+          var expDate = expDateInput.value;
+          expDate = expDate.replace(/\D/g, "");
+          if (expDate.length > 2) {
+            expDate = expDate.slice(0, 2) + "/" + expDate.slice(2);
+          }
+          expDateInput.value = expDate.slice(0, 5);
+          if (!isValidExpirationDate(expDate)) {
+            validateDateMessage.style.display = "block";
+          } else {
+            validateDateMessage.style.display = "none";
+          }
+        });
+        function isValidExpirationDate(expDate) {
+          if (!/^\d{2}\/\d{2}$/.test(expDate)) {
+            return false;
+          }
+          var month = parseInt(expDate.slice(0, 2), 10);
+          var year = parseInt(expDate.slice(3), 10);
+          if (month < 1 || month > 12) {
+            return false;
+          }
+          if (year < 0 || year > 99) {
+            return false;
+          }
+          return true;
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <div class="final-payment">
+      <div class="Section-1">
+        <!-- Navbar -->
+        <nav class="profile-headerwhite">
+          <div class="header">
+            <!-- Logo -->
+            <div class="logo">
+              <img
+                class="last-minutes-flights"
+                loading="eager"
+                alt=""
+                src="./assets/vector1.svg"
+              />
+              <b class="easyset-24">EasySet 24</b>
+            </div>
+            <!-- MENU -->
+            <div class="header1">
+              <div class="country">
+                <img
+                  class="button-icon"
+                  loading="eager"
+                  alt=""
+                  src="./assets/india_flag.jpg"
+                />
+              </div>
+              <div class="icon-buttons">
+                <div class="button">
+                  <img
+                    class="iconscharacterhelp"
+                    loading="eager"
+                    alt=""
+                    src="./assets/iconscharacterhelp1.svg"
+                  />
+                </div>
+              </div>
+              <img
+                class="profile-photo"
+                loading="eager"
+                alt=""
+                src="./assets/nishant.jpg"
+              />
+
+              <div class="text">
+                <div class="your-account">Your Account</div>
+                <div class="profile-name">
+                  <div class="anna-carinna">Nishant Shinde</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <!-- Body -->
+        <div class="final-payment-body">
+          <div class="final-payment1">
+            <!-- left side -->
+            <div class="social-networks">
+              <!-- Left-1 -->
+              <div class="information-you-need-to-pay-at-parent">
+                <h3 class="information-you-need">
+                  Information You need to pay attention .
+                </h3>
+                <div class="passengers-please-check">
+                  <div class="passengers-are-divided">
+                    Passengers are divided according to age categories .
+                  </div>
+                  <div class="please-check-categories">
+                    Please Check Categories
+                  </div>
+                </div>
+              </div>
+              <!-- Left-2 -->
+              <div class="button-frame">
+                <!-- left-2-1 -->
+                <div class="ticket">
+                  <div class="date">
+                    <b class="date-1">One stop, 3h Between</b>
+                    <div class="date-2">
+                      Flight Duration &nbsp;<b class="h h1 span">9: 45h</b>
+                    </div>
+                  </div>
+                </div>
+                <!-- left-2-2 -->
+                <div class="photo">
+                  <div class="photo1">
+                    <!-- Flight-1 -->
+                    <hr />
+                    <div class="info-up">
+                      <div class="first-flight-no-container">
+                        First flight no From Stockholm
+                        <b>C650</b>
+                      </div>
+                      <div class="travelinsurance-frame">
+                        <div class="delta-logo">
+                          <img
+                            class="social-networks-frame"
+                            loading="eager"
+                            alt=""
+                            src="./assets/Delta Logo.svg"
+                          />
+                        </div>
+                        <b class="delta-airlines">Delta Airlines</b>
+                      </div>
+                    </div>
+                    <!-- Flight-2 -->
+                    <hr />
+                    <div class="info-down">
+                      <div class="second-flight-no-container">
+                        Second flight no From Rome
+                        <b>JSG113</b>
+                      </div>
+                      <img
+                        class="vuesaxoutlinetick-square-icon1"
+                        alt=""
+                        src="./assets/vuesaxoutlineticksquare1.svg"
+                      />
+                      <div class="frame-footer-title">
+                        <div class="airline-logo-turkish-airlines-">
+                          <div class="turkish-ailines-logo">
+                            <img
+                              class="text-input-icon"
+                              alt=""
+                              src="./assets/Turkish Airlines Logo.svg"
+                            />
+                          </div>
+                        </div>
+                        <b class="turkish-airways">Turkish Airways</b>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Left-3 -->
+              <!-- Left-3-1 -->
+              <div class="your-trip-summary-parent">
+                <h3 class="your-trip-summary">Your Trip Summary</h3>
+                <div class="visa-card">
+                  <div class="your-flight-take">
+                    Your flight take off from ARN Gate 23A , you Enter through C
+                    Entrance.
+                  </div>
+                  <div class="in-fco-airport">
+                    In FCO Airport in Rome You will stay 3h &45m then Exit
+                    through Gate D14 .
+                  </div>
+                  <div class="final-destination-will">
+                    Final Destination will be SABIHA Airport and You can Exit
+                    Through L Door .
+                  </div>
+                </div>
+              </div>
+              <!-- Left-3-2 -->
+              <div class="reviws">
+                <div class="very-good">
+                  <div class="very-good-container">
+                    <b>Very Good</b>
+                    <span class="reviews"> , 2.259 Reviews</span>
+                  </div>
+                  <div class="icon">
+                    <img
+                      class="icon-child"
+                      alt=""
+                      src="./assets/Icon-child.svg"
+                    />
+                  </div>
+                </div>
+                <div class="level">
+                  <div class="level1">
+                    <div class="leaf">
+                      <img
+                        class="iconsothersleaves-2"
+                        alt=""
+                        src="./assets/iconsothersleaves21.svg"
+                      />
+                    </div>
+                    <div class="sustainability-level">Sustainability Level</div>
+                  </div>
+                  <div class="icon1">
+                    <img
+                      class="icon-child"
+                      alt=""
+                      src="./assets/Icon-child.svg"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- right side -->
+            <div class="right-text">
+              <div class="right-text-up">
+                <!-- Right-1 -->
+                <div class="payment-metod">
+                  <h3 class="payment-methods-and">
+                    Payment Methods and Information
+                  </h3>
+                  <div class="price">
+                    <div class="price-details">
+                      <b class="price-details1">Price Details</b>
+                    </div>
+                    <div class="prices">
+                      <div class="p1">
+                        <div class="confirm-button">
+                          <div class="frame-footer">$ 87</div>
+                          <div class="adults">2 Adults</div>
+                        </div>
+                        <div class="confirm-button1">
+                          <div class="div">$ 24</div>
+                          <div class="children">3 Children</div>
+                        </div>
+                        <div class="confirm-button2">
+                          <div class="div1">$ 12</div>
+                          <div class="infants">1 Infants</div>
+                        </div>
+                      </div>
+                      <div class="p2">
+                        <div class="total">
+                          <b class="total-usd">Total (USD)</b>
+                        </div>
+                        <b class="autolayout">$ 157</b>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Right-2 -->
+                <div class="inputs">
+                  <div class="booked">
+                    <div class="booking-for-work">
+                      <input
+                        type="radio"
+                        class="radio-button"
+                        id="myRadioButton"
+                      />
+                      <b onclick="toggleRadioButton()" class="booking-for-work1"
+                        >Booking For Work
+                      </b>
+                    </div>
+                    <div class="payment-method">
+                      <div class="payment">
+                        <b class="payment-method1">Payment Method</b>
+                      </div>
+                      <div class="p-input">
+                        <div class="input">
+                          <div class="text-icon1">
+                            <div class="text-icon2">
+                              <img
+                                class="paypal-icon"
+                                alt=""
+                                src="./assets/paypal.svg"
+                              />
+                            </div>
+                            <img
+                              class="iconseditdrop-down-list"
+                              alt=""
+                              src="./assets/iconseditdropdownlist1.svg"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- form -->
+                  <form id="form" action="/">
+                    <div class="info-1">
+                      <div class="info-11">
+                        <div class="inputs1">
+                          <div class="input1">
+                            <div class="text-parent">
+                              <div class="text3">
+                                <div class="title1">
+                                  <span>First Name </span>
+                                  <span class="span3">*</span>
+                                </div>
+                              </div>
+                              <div class="input2">
+                                <input
+                                  id="fname"
+                                  name="fname"
+                                  class="anna"
+                                  placeholder="Name"
+                                  type="text"
+                                  required
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="input3">
+                            <div class="text5">
+                              <div class="title2">
+                                <span>Last Name </span>
+                                <span class="span4">*</span>
+                              </div>
+                            </div>
+                            <div class="input4">
+                              <input
+                                id="lname"
+                                name="lname"
+                                class="carinn"
+                                placeholder="Lastname"
+                                type="text"
+                                required
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="input-48">
+                          <div class="text7">
+                            <div class="title3">
+                              <span>Phone Number </span>
+                              <span class="span5">*</span>
+                            </div>
+                          </div>
+                          <div class="input5">
+                            <div class="number">
+                              <div class="number1">
+                                <img
+                                  class="flags-se"
+                                  alt=""
+                                  src="./assets/india_flag.jpg"
+                                />
+                                <input
+                                  class="enter-your-emailgmailcom1"
+                                  type="tel"
+                                  id="phone"
+                                  name="phone"
+                                  placeholder="Enter Phone Numnber"
+                                  pattern="[0-9]{10}"
+                                  required
+                                />
+                              </div>
+                              <img
+                                class="iconsbasesearch"
+                                alt=""
+                                src="./assets/iconsbasesearch2.svg"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- card details -->
+                    <div class="info-2">
+                      <!-- CARD-NUMBER -->
+                      <div class="card-number">
+                        <div class="cardgap input6">
+                          <div class="text9">
+                            <div class="title4">
+                              <span>Card Number </span>
+                              <span class="span6">*</span>
+                            </div>
+                          </div>
+                          <div class="input7">
+                            <div class="text-icon3">
+                              <div class="text-icon4">
+                                <img
+                                  class="iconsmoneybank-card"
+                                  alt=""
+                                  src="./assets/iconsmoneybankcard.svg"
+                                />
+                                <input
+                                  id="cardnumber"
+                                  name="cardnumber"
+                                  class="enter-your-emailgmailcom2"
+                                  placeholder=".............................................................."
+                                  type="text"
+                                  maxlength="16"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div id="validatecard" class="text10">
+                            <div class="information4">
+                              Card number is invalid 💳
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- CVC -->
+                      <div class="cvc">
+                        <div class="cardgap cvc1">
+                          <div class="text11">
+                            <div class="title5">
+                              <span>CVC </span>
+                              <span class="span7">*</span>
+                            </div>
+                          </div>
+                          <div class="input8">
+                            <input
+                              id="cvc"
+                              name="cvc"
+                              class="text-icon5"
+                              placeholder="***"
+                              type="text"
+                              maxlength="3"
+                            />
+                          </div>
+                          <div id="validatecvc" class="text12">
+                            <div class="information5">Invalid CVC</div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- EXP-DATE -->
+                      <div class="cardgap exp-date">
+                        <div class="input9">
+                          <div class="swiss-travel-guide-container">
+                            <span>EXP Date </span>
+                            <span class="span8">* </span>
+                          </div>
+                        </div>
+                        <div class="input10">
+                          <input
+                            id="exptdate"
+                            name="exptdate"
+                            class="text-icon6"
+                            placeholder="MM/YY"
+                            type="text"
+                          />
+                        </div>
+                        <div id="validatedate" class="text13">
+                          <div class="information6">Invalid Date 📅</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- cancellation Policy -->
+                    <div class="right-text-center">
+                      <h1 class="cancellation-policy">Cancellation Policy</h1>
+                      <div class="text14">
+                        <div class="get-a-full">
+                          Get a Full Refund If You Cancel By Jun 23 (PDT) .
+                        </div>
+                        <div class="read-more">Read More ...</div>
+                      </div>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="right-tex-down">
+                      <div class="button1">
+                        <button type="submit" class="button2">
+                          <b class="parent-layout">Confirm and Pay</b>
+                        </button>
+                        <div class="check-your-information">
+                          Check your information before submitting .
+                        </div>
+                      </div>
+                      <div class="button3">
+                        <button class="fav-button">
+                          <div class="button-text">
+                            <b class="list-your-favourite"
+                              >Save If You like it
+                            </b>
+                            <img
+                              class="iconsbaselike"
+                              alt=""
+                              src="./assets/iconsbaselike.svg"
+                            />
+                          </div>
+                        </button>
+                        <div class="save-your-flight">
+                          Save your flight info , find it through Shortcut.
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- footer grid -->
+      <footer class="footerfinal">
+        <!-- Part-1 -->
+        <div class="customer-service">
+          <div class="footer">
+            <div class="base"></div>
+            <div class="auto-layout-the-whole-episode">
+              <div class="auto-layout-about-us">
+                <b class="customer-service1">About Us</b>
+                <div class="our-story">Our Story</div>
+                <div class="work-with-us">Work with us</div>
+                <div class="press-media">Press & media</div>
+                <div class="privacy-security">Privacy & Security</div>
+              </div>
+              <div class="headquarters">
+                <div class="auto-layout-we-offer">
+                  <b class="we-offer">We Offer</b>
+                  <div class="trip-sponsorship">Trip Sponsorship</div>
+                  <div class="last-minutes-flights1">Last Minutes Flights</div>
+                  <div class="best-deals">Best Deals</div>
+                  <div class="ai-driven-search">AI-Driven Search</div>
+                </div>
+              </div>
+              <div class="headquarters1">
+                <div class="auto-layout-headquarters">
+                  <b class="headquarters2">Headquarters</b>
+                  <div class="england1">England</div>
+                  <div class="france">France</div>
+                  <div class="canada">Canada</div>
+                  <div class="iceland">Iceland</div>
+                </div>
+              </div>
+              <div class="headquarters3">
+                <div class="auto-layout-travel-blogs">
+                  <b class="travel-blogs">Travel Blogs</b>
+                  <div class="bali-travel-guide">Bali Travel Guide</div>
+                  <div class="sri-travel-guide">Sri Travel Guide</div>
+                  <div class="peru-travel-guide">Peru Travel Guide</div>
+                  <div class="swiss-travel-guide">Swiss Travel Guide</div>
+                </div>
+              </div>
+              <div class="auto-layout-activities">
+                <b class="activities">Activities</b>
+                <div class="tour-leading">Tour Leading</div>
+                <div class="cruising-sailing">Cruising & sailing</div>
+                <div class="camping">Camping</div>
+                <div class="kayaking">Kayaking</div>
+              </div>
+              <div class="auto-layou-service">
+                <b class="service">Service</b>
+                <div class="report-error">Report Error</div>
+                <div class="ask-online">Ask online</div>
+                <div class="travel-insurance">Travel insurance</div>
+              </div>
+            </div>
+            <div class="payment-methods-parent">
+              <div class="payment-methods">
+                <button class="visa-card1">
+                  <img
+                    class="visa-logo-icon"
+                    alt=""
+                    src="./assets/visalogo1.svg"
+                  />
+                </button>
+                <img
+                  class="amex-icon"
+                  loading="eager"
+                  alt=""
+                  src="./assets/amex1@2x.png"
+                />
+
+                <div class="master-card">
+                  <img
+                    class="internationalbankmasterrcard-icon"
+                    loading="eager"
+                    alt=""
+                    src="./assets/internationalbankmasterrcard1@2x.png"
+                  />
+                </div>
+                <div class="paypal">
+                  <img
+                    class="international-icon"
+                    loading="eager"
+                    alt=""
+                    src="./assets/international1@2x.png"
+                  />
+                </div>
+              </div>
+              <div class="social-networks-linkedin-teleg">
+                <div class="social-networks1">
+                  <img
+                    class="linkedin-icon footer-icon"
+                    loading="eager"
+                    alt=""
+                    src="./assets/-linkedin.svg"
+                  />
+
+                  <img
+                    class="telegram-icon footer-icon"
+                    loading="eager"
+                    alt=""
+                    src="./assets/-telegram.svg"
+                  />
+
+                  <img
+                    class="twitter-icon footer-icon"
+                    loading="eager"
+                    alt=""
+                    src="./assets/-twitter.svg"
+                  />
+
+                  <img
+                    class="facebook-icon footer-icon"
+                    loading="eager"
+                    alt=""
+                    src="./assets/facebook.svg"
+                  />
+
+                  <img
+                    class="instagram-icon footer-icon"
+                    loading="eager"
+                    alt=""
+                    src="./assets/-instagram.svg"
+                  />
+                </div>
+              </div>
+              <div class="send-an-email">
+                <div class="input11">
+                  <div class="e-mail-text">
+                    <div class="title6">Email</div>
+                  </div>
+                  <div class="auto-layout-input">
+                    <div class="text16">
+                      <img
+                        class="iconsofficemail"
+                        alt=""
+                        src="./assets/iconsofficemail1.svg"
+                      />
+                      <input
+                        class="enter-yout-email"
+                        placeholder="enter your email"
+                        type="email"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="confirm-button3">
+                  <div class="button4">
+                    <button class="subs-button">
+                      <div class="text18">Subscribe</div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Part-2 -->
+        <div class="framefooter">
+          <div class="underthefootertitle">
+            <div class="frame-footer1">
+              <div class="under-the-footer-title">
+                <div class="text-1">
+                  <div class="icon2">
+                    <img
+                      class="iconscharactercopyright"
+                      alt=""
+                      src="./assets/iconscharactercopyright.svg"
+                    />
+                  </div>
+                  <div class="copyright-easyset24">Copyright EasySet24</div>
+                </div>
+                <div class="text-2">
+                  <div class="icon3">
+                    <img
+                      class="iconsofficeemail-down"
+                      alt=""
+                      src="./assets/iconsofficeemaildown.svg"
+                    />
+                  </div>
+                  <div class="easyset24gmailcom">easyset24@gmail.com</div>
+                </div>
+                <b class="easyset24-seamless-journeys"
+                  >"EasySet24: Seamless Journeys, Unrivalled Travel Wisdom!"</b
+                >
+                <div class="text-3">
+                  <img
+                    class="iconstravelslocal-two"
+                    alt=""
+                    src="./assets/iconstravelslocaltwo.svg"
+                  />
+
+                  <div class="oxford-streetlondon">
+                    123 Oxford Street,London
+                  </div>
+                </div>
+                <div class="text-4">
+                  <div class="icon4">
+                    <img
+                      class="iconscommunicatephone-call"
+                      alt=""
+                      src="./assets/iconscommunicatephonecall1.svg"
+                    />
+                  </div>
+                  <div class="phone">
+                    <div class="phone1">+44 20 7123 4567</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
